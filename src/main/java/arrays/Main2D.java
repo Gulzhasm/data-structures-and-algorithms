@@ -13,7 +13,8 @@ public class Main2D {
 
         System.out.println(Arrays.deepToString(twoDimensionalArray.arr));
         twoDimensionalArray.deleteValueFromArray(0, 0);
-        System.out.println(Arrays.deepToString(twoDimensionalArray.arr));
+        System.out.println(Arrays
+                .deepToString(twoDimensionalArray.arr));
 
         //twoDimensionalArray.searchingValue(40);
         // twoDimensionalArray.traverse2DArray();
