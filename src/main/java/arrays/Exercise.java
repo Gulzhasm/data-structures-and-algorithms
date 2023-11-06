@@ -4,20 +4,14 @@ import java.util.Arrays;
 
 public class Exercise {
     public static void main(String[] args) {
-        middleElementsOfArray(new int[]{1, 2});
+      int[] mid=  middleElementsOfArray(new int[]{1, 2,4,5});
+        System.out.println(Arrays.toString(mid));
     }
 
     public static int[] middleElementsOfArray(int[] array) {
         // arrays length is 4, {1-0,2-1,3-2,4} } then midX=2
-        int[] result = new int[2];
         int midX = array.length / 2;
-        result[0] = array[midX - 1];
-        result[1] = array[midX];
-        System.out.println(Arrays.toString(result));
-        return result;
-
-        //Time complexity -> O(1)
-        //Space complexity -> O(1)?
+        return new int[]{array[midX - 1], array[midX]};
     }
 
     public static int sumDiagonal(int[][] array) {
