@@ -1,4 +1,4 @@
-package linked_list;
+package linked_list.singly;
 
 public class SingleLinkedList {
 
@@ -71,7 +71,7 @@ public class SingleLinkedList {
             tempNode.next = null;
             tail = tempNode;
             size--;
-        }else {
+        } else {
             Node tempNode = head;
             for (int i = 0; i < location - 1; i++) {
                 tempNode = tempNode.next;
@@ -80,4 +80,13 @@ public class SingleLinkedList {
             size--;
         }
     }
+
+    //delete an entire SLL
+
+    public void deleteSLL() {
+        head = null;
+        tail = null;
+        System.out.println("The SLL deleted successfully");
+    }
+
 }

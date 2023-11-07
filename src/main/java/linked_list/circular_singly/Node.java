@@ -1,4 +1,4 @@
-package linked_list;
+package linked_list.circular_singly;
 
 public class Node {
     public int value;
