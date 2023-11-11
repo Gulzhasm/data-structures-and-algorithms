@@ -8,7 +8,9 @@ public class Exercise {
         // System.out.println(Arrays.toString(new int[]{removeDuplicate(new int[]{1, 2, 2, 3, 4, 4, 5, 5})}));
 
         //System.out.println(maxProfit2Way(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(Arrays.toString(twoSum(new int[]{2,7,11,15}, 9)));
+        //  System.out.println(Arrays.toString(findTopTwoScores(new int[]{2, 7, 11, 15})));
+        System.out.println(isPermutationComplex(new int[]{2, 7, 11, 15}, new int[]{15, 7, 11, 2}));
+        System.out.println(isPermutationOptimized(new int[]{7, 11, 15}, new int[]{15, 7, 11, 2}));
 
     }
 
@@ -45,7 +47,8 @@ public class Exercise {
                 secondHighest = array[i];
             }
         }
-
+        System.out.println(" first" + firstHighest);
+        System.out.println(" second" + secondHighest);
         return new int[]{firstHighest, secondHighest};
         //Time complexity -> O(n)
         //Space complexity -> O(1)?
@@ -155,5 +158,71 @@ public class Exercise {
             //Space Complexity O(n)
         }
         return array;
+    }
+
+    public static boolean isUnique(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; i++) {
+                if (arr[i] == arr[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public static boolean isPermutationComplex(int[] array1, int[] array2) {
+        if (array1.length == array2.length) {
+            for (int i = 0; i < array1.length; i++) {
+                for (int j = 0; j < array2.length; j++) {
+                    if (array1[i] == array2[j]) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+        //Time Complexity O(n^2)
+    }
+
+    public static boolean isPermutationOptimized(int[] array1, int[] array2) {
+
+        int sumArray1 = 0;
+        int multiplicationArray1 = 1;
+
+        int sumArray2 = 0;
+        int multiplicationArray2 = 1;
+
+        if (array1.length != array2.length) {
+            return false;
+        }
+        for (int i = 0; i < array1.length; i++) {
+            sumArray1 += array1[i];
+            sumArray2 += array2[i];
+
+            multiplicationArray1 *= array1[i];
+            multiplicationArray2 *= array2[i];
+        }
+        return sumArray1 == sumArray2 && multiplicationArray1 == multiplicationArray2;
+    }
+
+    public static boolean rotateMatrix(int[][] matrix){
+
+        if(matrix.length == 0 || matrix.length != matrix[0].length) return false;
+        int n = matrix.length;
+
+        for(int layer = 0; layer< n/2; layer++){
+            int first = layer;
+            int last = n-1-layer;
+            for(int i=first; i<last; i++){
+                int offset = i-first;
+                int top = matrix[first][i];
+                matrix[first][i] = matrix[last-offset][first];
+                matrix[last-offset][first]=matrix[last][last-offset];
+                matrix[i][last] = top;
+            }
+        }
+        return true;
     }
 }
