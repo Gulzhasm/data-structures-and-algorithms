@@ -18,12 +18,12 @@ public class LinkedList {
         Node current = head;
         Node prev = null;
 
-        while(current != null){
+        while (current != null) {
             int currentValue = current.value;
-            if(unique.contains(currentValue)){
+            if (unique.contains(currentValue)) {
                 prev.next = current.next;
                 size--;
-            }else{
+            } else {
                 unique.add(currentValue);
                 prev = current;
             }
