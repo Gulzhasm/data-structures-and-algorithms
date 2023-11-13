@@ -8,6 +8,25 @@ public class LinkedList {
     public Node tail;
     public int size;
 
+    public Node NthToLast(int location) {
+        // size - location
+
+        Node first = head;
+        Node second = head;
+
+        for (int i = 0; i < location; i++) {
+            if (second == null) return null;
+            second = second.next;
+        }
+        while (second != null) {
+            first = first.next;
+            second = second.next;
+        }
+        return first;
+
+    }
+
+
     public void removeDupes() {
         // head -> 1->2->1->3 -> tail
         //linkedList = 1->2->1->3

@@ -10,7 +10,8 @@ public class Main {
         ll.insertNode(1);
         ll.insertNode(3);
         ll.traverseLL();
-        ll.removeDupes();
-        ll.traverseLL();
+        Node node = ll.NthToLast(3);
+        System.out.println(node.value);
+
     }
 }
