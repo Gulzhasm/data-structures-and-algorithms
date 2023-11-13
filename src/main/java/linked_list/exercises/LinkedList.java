@@ -23,7 +23,6 @@ public class LinkedList {
             second = second.next;
         }
         return first;
-
     }
 
 

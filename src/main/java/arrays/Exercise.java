@@ -84,17 +84,17 @@ public class Exercise {
         return Arrays.copyOf(uniqueArray, index);
     }
 
-
+//leetcode 26 easy categories
     public static int removeDupes(int[] array) {
-        int i = 0;
-        for (int j = 0; j < array.length; j++) {
-            if (array[i] != array[j]) {
-                i++;
-                array[i] = array[j];
-            }
+        int j = 1;
 
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] != array[j - 1]) {
+                array[j] = array[i];
+                j++;
+            }
         }
-        return i + 1;
+        return j;
     }
 
     public static int removeDuplicate(int[] array) {
@@ -207,19 +207,19 @@ public class Exercise {
         return sumArray1 == sumArray2 && multiplicationArray1 == multiplicationArray2;
     }
 
-    public static boolean rotateMatrix(int[][] matrix){
+    public static boolean rotateMatrix(int[][] matrix) {
 
-        if(matrix.length == 0 || matrix.length != matrix[0].length) return false;
+        if (matrix.length == 0 || matrix.length != matrix[0].length) return false;
         int n = matrix.length;
 
-        for(int layer = 0; layer< n/2; layer++){
+        for (int layer = 0; layer < n / 2; layer++) {
             int first = layer;
-            int last = n-1-layer;
-            for(int i=first; i<last; i++){
-                int offset = i-first;
+            int last = n - 1 - layer;
+            for (int i = first; i < last; i++) {
+                int offset = i - first;
                 int top = matrix[first][i];
-                matrix[first][i] = matrix[last-offset][first];
-                matrix[last-offset][first]=matrix[last][last-offset];
+                matrix[first][i] = matrix[last - offset][first];
+                matrix[last - offset][first] = matrix[last][last - offset];
                 matrix[i][last] = top;
             }
         }
