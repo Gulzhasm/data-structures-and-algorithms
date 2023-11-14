@@ -9,9 +9,9 @@ public class Exercise {
 
         //System.out.println(maxProfit2Way(new int[]{7, 1, 5, 3, 6, 4}));
         //  System.out.println(Arrays.toString(findTopTwoScores(new int[]{2, 7, 11, 15})));
-        System.out.println(isPermutationComplex(new int[]{2, 7, 11, 15}, new int[]{15, 7, 11, 2}));
-        System.out.println(isPermutationOptimized(new int[]{7, 11, 15}, new int[]{15, 7, 11, 2}));
-
+       // System.out.println(isPermutationComplex(new int[]{2, 7, 11, 15}, new int[]{15, 7, 11, 2}));
+        //System.out.println(isPermutationOptimized(new int[]{7, 11, 15}, new int[]{15, 7, 11, 2}));
+        System.out.println(removeDupes(new int[]{1, 2, 2, 3, 4, 4, 5}));
     }
 
     public static int[] middleElementsOfArray(int[] array) {
