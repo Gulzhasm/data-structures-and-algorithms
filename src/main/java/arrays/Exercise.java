@@ -84,17 +84,19 @@ public class Exercise {
         return Arrays.copyOf(uniqueArray, index);
     }
 
-//leetcode 26 easy categories
+    //leetcode 26 easy categories
     public static int removeDupes(int[] array) {
-        int j = 1;
-
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] != array[j - 1]) {
-                array[j] = array[i];
-                j++;
+        //1 1 2
+        // 1-> j=1 i = 0 1=1
+        // 2-> j=2 i =0 1=2
+        int i = 1;
+        for (int j = 1; j < array.length; j++) {
+            if (array[j] != array[i - 1]) {
+                array[i] = array[j];
+                i++;
             }
         }
-        return j;
+        return i;
     }
 
     public static int removeDuplicate(int[] array) {
