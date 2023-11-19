@@ -73,6 +73,8 @@ int[] arr = [5,4,3,2,1] int target = 4;
 if(target > middle)
 end = midX-1;
 
+compare start and end, for example if starting element is greater than the end element, than that is a desc sorted array
+
 
 
 
