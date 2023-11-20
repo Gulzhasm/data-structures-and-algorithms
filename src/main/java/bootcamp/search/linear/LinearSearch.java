@@ -4,6 +4,26 @@ import java.util.Arrays;
 
 public class LinearSearch {
 
+    static boolean search(String string, char target) {
+        //time complexity o(n)
+        if (string.length() == 0) return false;
+        for (int i = 0; i < string.length(); i++) {
+            if (target == string.charAt(i)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean searchInRange(int[] arr, int target, int start, int end) {
+        if (arr.length == 0) return false;
+        for (int i = start; i <= end; i++) {
+            if (arr[i] == target) {
+                return true;
+            }
+        }
+        return false;
+    }
     static int minElement(int[] ints) {
         if (ints.length == 0) return 0;
         int min = Integer.MAX_VALUE;
@@ -27,15 +47,7 @@ public class LinearSearch {
     }
 
 
-    static boolean searchInRange(int[] arr, int target, int start, int end) {
-        if (arr.length == 0) return false;
-        for (int i = start; i <= end; i++) {
-            if (arr[i] == target) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     static int findElement(int[] arr, int element) {
         //time complexity o(n)
@@ -50,16 +62,6 @@ public class LinearSearch {
     }
 
 
-    static boolean search(String string, char target) {
-        //time complexity o(n)
-        if (string.length() == 0) return false;
-        for (int i = 0; i < string.length(); i++) {
-            if (target == string.charAt(i)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 
     static boolean search2(String s, char target) {
