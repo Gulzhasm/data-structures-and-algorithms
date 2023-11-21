@@ -5,15 +5,17 @@ import java.util.Arrays;
 public class SearchRange {
     public static void main(String[] args) {
         int[] arr = {3, 4, 7, 8, 9, 11};
-        int target = 8;
+        int target = 4;
         int[] ans = searchInRange(arr, target);
         System.out.println(Arrays.toString(ans));
     }
 
-    static int[] searchInRange(int[] arr, int target) {
+    static int[] searchInRange(int[] nums, int target) {
         int[] ans = {-1, -1};
-        ans[0] = search(arr, target, true);
-        ans[1] = search(arr, target, false);
+        ans[0] = search(nums, target, true);
+        if (ans[0] != -1) {
+            ans[1] = search(nums, target, false);
+        }
         return ans;
     }
 
