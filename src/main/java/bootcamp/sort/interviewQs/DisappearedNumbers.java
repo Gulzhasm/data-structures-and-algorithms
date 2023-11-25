@@ -5,12 +5,6 @@ import java.util.List;
 
 //asked in Google
 public class DisappearedNumbers {
-    public static void main(String[] args) {
-        int[] nums = {1, 1};
-        findDisappearedNumbers(nums);
-        System.out.println(findDisappearedNumbers(nums));
-    }
-
 
     //brute force solution
     static List<Integer> findDisappearedNumbers(int[] arr) {
