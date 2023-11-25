@@ -17,7 +17,6 @@ public class FirstMissingPositive {
                 i++;
             }
         }
-
         for (int index = 0; index < arr.length; index++) { //1, 2,3
             if (arr[index] != index + 1) {
                 return index + 1;
