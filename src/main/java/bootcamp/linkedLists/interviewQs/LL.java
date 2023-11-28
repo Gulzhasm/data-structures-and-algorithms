@@ -10,6 +10,23 @@ public class LL {
         this.size = 0;
     }
 
+    //leetcode remove duplicates
+
+    public void removeDuplicates() {
+        Node node = head;
+        while (node.next != null) {
+            if (node.value == node.next.value) {
+                node.next = node.next.next;
+                size--;
+            } else {
+                node = node.next;
+            }
+        }
+        tail = node;
+        tail.next = null;
+    }
+
+
     public void insert(int val, int index) {
         if (index == 0) {
             insertFirst(val);
