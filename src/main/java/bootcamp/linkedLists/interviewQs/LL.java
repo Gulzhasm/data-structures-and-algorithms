@@ -11,7 +11,6 @@ public class LL {
     }
 
     //leetcode remove duplicates
-
     public void removeDuplicates() {
         Node node = head;
         while (node.next != null) {
