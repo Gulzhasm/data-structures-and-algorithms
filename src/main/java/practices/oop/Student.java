@@ -5,14 +5,13 @@ public class Student {
     private String name;
     private float mark;
 
-
     public Student(int rno, String name, float mark) {
         this.rno = rno;
         this.name = name;
         this.mark = mark;
     }
 
-    Student(){
+    Student() {
         this(13, "default student", 89.0f);
     }
 
