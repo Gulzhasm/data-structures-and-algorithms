@@ -1,4 +1,4 @@
-package practices.oop;
+package practices.oop.staticBlock;
 
 public class Student {
     private int rno;
