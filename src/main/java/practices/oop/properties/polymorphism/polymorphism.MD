@@ -20,3 +20,9 @@ Types of polymorphism:
 what is method overriding:
 same function, but child class is overriding the parent's function. 
 
+Parent obj = new Child(); -> which method will be called depends on Child(); This is known as UPCASTING! 
+thus overriding works
+
+early binding and late binding: 
+Whenever you declare the class as final, it will implicitly declare all the methods in it
+

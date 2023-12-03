@@ -2,7 +2,7 @@ package practices.oop.properties.inheritance;
 
 import java.sql.SQLOutput;
 
-public class Box {
+public abstract class Box {
     double length;
     double height;
     double weight;
@@ -14,7 +14,7 @@ public class Box {
     }
 
     //cube
-    Box(double side){
+    Box(double side) {
         //super(); calling Object class
         this.height = side;
         this.length = side;
@@ -28,13 +28,18 @@ public class Box {
     }
 
     //old box
-    Box(Box old){
+    Box(Box old) {
         this.length = old.length;
         this.height = old.height;
         this.weight = old.weight;
     }
 
-    public void information(){
+    public void information() {
         System.out.println("Displaying the box..");
+    }
+
+    static void greeting() {
+        System.out.println("Hey, I am in a box class. Greetings");
+
     }
 }

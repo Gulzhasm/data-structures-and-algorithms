@@ -16,9 +16,11 @@ public class Main {
 //        System.out.println(box5.weight);
 
 
-
-
-        BoxPrice box = new BoxPrice(5, 8,200);
+        BoxPrice box = new BoxPrice(5, 8, 200);
         System.out.println(box.weight);
+
+        //Box.greeting();
+        Box box1 = new BoxWeight();
+        BoxWeight.greeting(); // you can inherit, but you cannot override
     }
 }
