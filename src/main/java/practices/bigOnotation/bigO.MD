@@ -16,6 +16,7 @@ What is Big O Notation?
 word definition: O(N^3) => this graph is your upper bound, your algorithm will not exceed N^3!
 
 General Knowledge purpose:
+In interviews, we only care about Big O notation only!
 Big Omega Notation: opposite of Big O
 word definition: Ω(n^3) - this is your lower bound, your algo will always exceed the big omega!
 
@@ -25,9 +26,6 @@ Theta Notation: Combining the both upper and lower bonds.
 There are also little o notation and little omega notation :)
 little o notation: loosely upper bound => strictly slower than Big O
 little omega notation: loosely lower bound => strictly greater than Big Ω
-
-In interviews, we only care about Big O notation only!
-
 
 
 Space Complexity
