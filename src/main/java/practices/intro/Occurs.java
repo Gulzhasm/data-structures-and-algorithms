@@ -6,14 +6,23 @@ import java.util.List;
 
 public class Occurs {
     public static void main(String[] args) {
-    String[] nums = {"abc","bcd","aaaa","cbc"};
-        System.out.println(findWordsContaining(nums, 'a'));
+        String[] nums = {"abc", "bcd", "aaaa", "cbc"};
+        String s = "   fly me   to   the moon  ";
+        System.out.println(lengthOfLastWord1(s));
     }
-    public static  List<Integer> findWordsContaining(String[] words, char x) {
+
+
+    public static int lengthOfLastWord1(String s) {
+        if(s.length() == 0) return -1;
+        String[] arr = s.trim().split("\s");
+        return    arr[arr.length-1].length();
+    }
+
+    public static List<Integer> findWordsContaining(String[] words, char x) {
         List<Integer> ans = new ArrayList<>();
-        for(int i = 0; i < words.length; i++){
-            for(char ch : words[i].toCharArray()){
-                if(ch == x){
+        for (int i = 0; i < words.length; i++) {
+            for (char ch : words[i].toCharArray()) {
+                if (ch == x) {
                     ans.add(i);
                     break;
                 }
@@ -53,14 +62,14 @@ public class Occurs {
 
 
     public static int[] sortedSquares(int[] nums) {
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             nums[i] = Math.abs(nums[i] * nums[i]);
         }
         bubble(nums);
         return nums;
     }
 
-    void occur(int num){
+    void occur(int num) {
         // n = 12343 how many times occurs 3
         int n = 1234333333;
         int count = 0;
@@ -74,4 +83,31 @@ public class Occurs {
         }
         System.out.println(count);
     }
+
+// TODO needs to rework and debug
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        List<Integer> ans = new ArrayList<>();
+        int min = 0;
+        int index = 0;
+
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (matrix[row][col] < min) {
+                    min = matrix[row][col];
+                    index = col;
+                }
+            }
+            boolean flag = true;
+            for (int i = 0; i < matrix.length; i++) {
+                if (matrix[i][index] > min) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) ans.add(min);
+        }
+
+        return ans;
+    }
+
 }
