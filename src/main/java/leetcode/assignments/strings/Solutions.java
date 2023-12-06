@@ -4,8 +4,22 @@ import java.util.List;
 
 public class Solutions {
 
-    public static void main(String[] args) {
-        System.out.println(reverseWords("Let's take LeetCode contest"));
+//TODO not completed yet, need to implement the recursion
+    public boolean operations(int[] nums, int target) {
+        //  int[] nums = {9, 3, 7};
+        //        int target = 13;
+        //         - +
+        //backtracking
+        //bitwise
+        //knapsack DP
+        //backtracking with sets -> space complexity increases
+        //recursive method!!!
+
+
+        if(nums.length == 0) {
+            return false;
+        }
+        return true;
     }
 
     public static String reverseWords(String s) {
