@@ -12,17 +12,43 @@ public class LL {
 
     public static void main(String[] args) {
         LL ll = new LL();
-        LL ll2 = new LL();
+
         ll.insertLast(1);
         ll.insertLast(3);
         ll.insertLast(9);
+        ll.insertLast(6666);
         ll.insertLast(14);
         ll.display();
-        ll.removeElements(9);
+        System.out.println();
+        System.out.println(ll.countElements());
+        ll.removeNthFromEnd(3);
         System.out.println();
         ll.display();
+    }
 
+    public void removeNthFromEnd(int n) {
+        int deleteIndex = countElements() - n;
+        Node node = get(deleteIndex - 1);
+        node.next = node.next.next;
+    }
 
+    Node getNodeAtIndex(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int countElements() {
+        Node node = head;
+        if (head == null) return 0;
+        int count = 0;
+        while (node.next != null) {
+            node = node.next;
+            count++;
+        }
+        return count + 1;
     }
 
     public void removeDuplicates() { // O(N) time complexity, O(1) - Space complexity
@@ -80,16 +106,7 @@ public class LL {
         return ans;
     }
 
-    public void insertLast(int val) {
-        if (tail == null) {
-            insertFirst(val);
-            return;
-        }
-        Node node = new Node(val);
-        tail.next = node;
-        tail = node;
-        size++;
-    }
+
 
 
     public void insertRec(int val, int index) {
@@ -132,7 +149,16 @@ public class LL {
         }
         size += 1;
     }
-
+    public void insertLast(int val) {
+        if (tail == null) {
+            insertFirst(val);
+            return;
+        }
+        Node node = new Node(val);
+        tail.next = node;
+        tail = node;
+        size++;
+    }
 
     public void display() {
         Node temp = head;
