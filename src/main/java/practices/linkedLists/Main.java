@@ -2,18 +2,17 @@ package practices.linkedLists;
 
 public class Main {
     public static void main(String[] args) {
-      /*  LL ll = new LL();
+        LL ll = new LL();
         ll.insertFirst(3);
         ll.insertFirst(2);
         ll.insertFirst(8);
-        ll.insertFirst(17);
-        ll.insertLast(99);
-        ll.insert(100, 3);
+        ll.insertFirst(2);
+        ll.insertFirst(8);
         ll.display();
         System.out.println();
-        System.out.println(ll.deleteAtIndex(2));
+       ll.removeDuplicates();
         ll.display();
-
+      /*
 
 
         DLL dll  = new DLL();
@@ -26,7 +25,7 @@ public class Main {
         dll.display();
         dll.insertAtIndex(99,65);
         dll.display();
-        */
+
         CLL cll  = new CLL();
         cll.insert(3);
         cll.insert(2);
@@ -35,6 +34,7 @@ public class Main {
         cll.display();
         cll.delete(8);
         cll.display();
+ */
 
 
     }
