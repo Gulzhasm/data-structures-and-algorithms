@@ -1,7 +1,5 @@
 package leetcode.assignments.linkedList;
 
-import practices.linkedLists.LL;
-
 import java.util.HashSet;
 
 public class ListNode {
@@ -18,11 +16,39 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
 }
 class LinkedList{
     ListNode head;
     ListNode tail;
     int size;
+
+    public boolean isPalindrome() {
+        ListNode temp = head;
+        int size = 0;
+
+        while(temp != null){
+            size++;
+            temp = temp.next;
+        }
+        temp = head;
+
+        for(int i = 0; i < size/2; i++){
+            if(get(temp, i) != get(temp,size-i-1)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public int get(ListNode head, int index) {
+        ListNode node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node.val;
+    }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode temp = head;
@@ -45,12 +71,6 @@ class LinkedList{
         return head;
     }
 
-    ListNode getNodeAtIndex(ListNode head, int index) {
-        for (int i = 0; i < index; i++) {
-            head = head.next;
-        }
-        return head;
-    }
 
     public int countElements(ListNode head) {
         int count = 0;
@@ -114,13 +134,16 @@ class LinkedList{
 class Solution{
 
     public static void main(String[] args) {
+        //[1,1,2,1]
         LinkedList ll = new LinkedList();
         ll.insertLast(1);
+        ll.insertLast(1);
         ll.insertLast(2);
-        ll.insertLast(3);
+        ll.insertLast(1);
         ll.display();
-        ListNode dummy = new ListNode(2);
-        System.out.println(ll.removeNthFromEnd(dummy, 1));
+        System.out.println();
+
+        System.out.println(ll.isPalindrome());
 
     }
 

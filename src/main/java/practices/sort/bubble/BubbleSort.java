@@ -6,15 +6,16 @@ public class BubbleSort {
 
 
     public static void main(String[] args) {
+        BubbleSort sort = new BubbleSort();
         int[] arr = {2, 1, 3};
-        bubble(arr);
+        sort.bubble(arr);
         System.out.println(Arrays.toString(arr));
     }
 /*
 there goes the intuition
  */
 
-    static void bubble(int[] arr) {
+    public void bubble(int[] arr) {
         boolean swapped;
         for (int i = 0; i < arr.length; i++) {
             swapped = false;
