@@ -1,9 +1,56 @@
 package leetcode.assignments.arrays;
 
 
+import java.util.Arrays;
+
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(lemonadeChange(new int[]{5, 5, 5, 10, 5, 5, 10, 20, 20, 20}));
+        System.out.println(Arrays.toString(plusOne(new int[]{9,9,9})));
+    }
+
+    public static int[] plusOne(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
+
+    public static boolean containsDuplicate(int[] nums) {
+        bubble(nums);
+        int i = 0;
+        while (i < nums.length - 1) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
+
+    static void bubble(int[] arr) {
+        boolean swapped;
+        for (int i = 0; i < arr.length; i++) {
+            swapped = false;
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) {
+                break;
+            }
+        }
     }
 
     public static boolean lemonadeChange(int[] bills) {
