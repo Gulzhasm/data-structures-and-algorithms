@@ -7,16 +7,36 @@ import java.util.List;
 public class FizzBuzz {
 
     public static void main(String[] args) {
-        System.out.println(mySqrt(8));
+        System.out.println(isPalindrome(-121));
+    }
+
+    public static boolean isPalindrome(int x) {
+       List<Integer> ans = new ArrayList<>();
+        if (x < 0) {
+            return false;
+        }
+
+        while (x > 0) {
+            int rem = x % 10;
+            ans.add(rem);
+            x = x / 10;
+        }
+
+        for(int i = 0; i < ans.size()/2; i++){
+            if(!ans.get(i).equals(ans.get(ans.size() - i -1))){
+                return false;
+            }
+        }
+        return true;
     }
 
     public int firstBadVersion(int n) {
         int start = 0;
         int end = n;
-        while(start <= end){
-            int mid = start + (end -start)/2;
-            if(isBadVersion(mid) == true && isBadVersion(mid-1) == false) return mid;
-            else if(isBadVersion(mid) == false) {
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (isBadVersion(mid) == true && isBadVersion(mid - 1) == false) return mid;
+            else if (isBadVersion(mid) == false) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
@@ -33,7 +53,7 @@ public class FizzBuzz {
     public static int mySqrt(int x) {
         int n = 1;
         int count = 0;
-        while(x > 0) {
+        while (x > 0) {
             x = x - n;
             n = n + 2;
             count++;
@@ -41,13 +61,13 @@ public class FizzBuzz {
         return count;
     }
 
-    public static  boolean isPalindrome(String s) {
+    public static boolean isPalindrome(String s) {
         s = s.replaceAll("\\p{IsPunctuation}|\\s+", "").replaceAll("`", "").toLowerCase();
         System.out.println(s);
-        if(s.isBlank() || s.equals(" ")) return true;
+        if (s.isBlank() || s.equals(" ")) return true;
 
-        for(int i = 0; i < s.length()/2; i++){
-            if(s.charAt(i) != s.charAt(s.length() - i - 1)){
+        for (int i = 0; i < s.length() / 2; i++) {
+            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
                 return false;
             }
         }
@@ -55,27 +75,28 @@ public class FizzBuzz {
     }
 
     public static void reverseString(char[] s) {
-        for(int i = 0, j = s.length - 1; i < s.length/2; i++, j--){
+        for (int i = 0, j = s.length - 1; i < s.length / 2; i++, j--) {
             char output = s[i];
             s[i] = s[j];
             s[j] = output;
         }
     }
+
     public static int thirdMax(int[] nums) {
         int count = 0;
         int f = Integer.MIN_VALUE;
         int s = Integer.MIN_VALUE;
         int t = Integer.MIN_VALUE;
 
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] > f){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > f) {
                 f = nums[i];
-            } else if(nums[i] > s){
-                if(f != s){
+            } else if (nums[i] > s) {
+                if (f != s) {
                     s = nums[i];
                 }
-            } else if(nums[i] > t){
-                if(s != t) {
+            } else if (nums[i] > t) {
+                if (s != t) {
                     t = nums[i];
                     count++;
                 }
