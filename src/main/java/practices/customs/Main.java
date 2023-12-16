@@ -2,15 +2,15 @@ package practices.customs;
 
 
 public class Main {
-    public static void main(String[] args) {
-        CustomLL ll = new CustomLL();
-        ll.insertFirst(1);
-        ll.insertLast(2);
-        ll.insertLast(3);
-        ll.display();
-        ll.insert(1, 5);
-        ll.display();
-        ll.deleteLL();
-        ll.display();
+    public static void main(String[] args) throws Exception {
+        CustomStack stack = new CustomStack(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(7);
+        stack.display();
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
     }
 }

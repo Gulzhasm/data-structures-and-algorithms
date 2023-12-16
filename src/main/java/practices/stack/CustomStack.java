@@ -6,7 +6,7 @@ public class CustomStack {
 
     protected int[] data;
     private static final int DEFAULT_SIZE = 10;
-    int ptr = -1;
+    int ptr;
 
     public CustomStack() {
         this(DEFAULT_SIZE);
@@ -14,6 +14,7 @@ public class CustomStack {
 
     public CustomStack(int size) {
         this.data = new int[size];
+        this.ptr = -1;
     }
 
     public boolean push(int item) throws StackException {
