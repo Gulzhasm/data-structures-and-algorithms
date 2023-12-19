@@ -15,5 +15,5 @@ reference variable = arr[0] = anywhere in the  heap memory
 3. indexes start from 0
 4. new keyword is used to create an object -> new int[5] -> this will create a new array with the size of 5
 
-2D Array
+
 

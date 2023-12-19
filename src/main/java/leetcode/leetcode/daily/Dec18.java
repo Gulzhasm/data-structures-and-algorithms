@@ -4,15 +4,46 @@ import java.util.Arrays;
 
 public class Dec18 {
     public static void main(String[] args) {
-        int[] arr = {5, 6, 2, 7, 4};
+        int[] arr = {1,2,3,4,4,5}; // 0 1 2 3 4
         String word1 = "ab", word2 = "pqrs";
 
         // System.out.println(maxProductDifference(arr));  word1 = "abcd", word2 = "pq" "apbqcd"
         //Input: word1 = "ab", word2 = "pqrs"
         //Output: "apbqrs"
-        System.out.println(mergeAlternately(word1, word2));
+        //System.out.println(mergeAlternately(word1, word2));
+        System.out.println(findAnyRepeatedNumber(arr));
     }
 
+    static int findAnyRepeatedNumber1(int[] arr) { //O(NlogN)
+        int repeated = 0;
+        Arrays.sort(arr);
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] != i+1){
+                repeated = arr[i];
+                break;
+            }
+        }
+
+        return repeated;
+    }
+
+    static int findAnyRepeatedNumber(int[] arr) {
+        int slow = arr[0];
+        int fast = arr[0];
+        do {
+            slow = arr[slow];
+            fast = arr[arr[fast]];
+        } while(slow != fast);
+
+        slow = arr[0];
+        while (slow != fast) {
+            slow = arr[slow];
+            fast = arr[fast];
+        }
+        return fast;
+    }
+
+    //O(N)
     public static String mergeAlternately(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
         int p1 = 0;
