@@ -1,4 +1,4 @@
-package leetcode.leetcode;
+package leetcode.leetcode.earlier;
 
 public class MaximumWealth {
     public static void main(String[] args) {
