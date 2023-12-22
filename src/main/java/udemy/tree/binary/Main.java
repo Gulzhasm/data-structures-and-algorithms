@@ -34,6 +34,8 @@ public class Main {
 
         binaryTree.root = N1;
         binaryTree.levelOrder();
+        System.out.println();
+        binaryTree.search("N2");
 
     }
 }
