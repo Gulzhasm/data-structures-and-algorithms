@@ -1,4 +1,4 @@
-package udemy.tree.binary;
+package udemy.tree.binary.linkedListImpl;
 
 
 import java.util.LinkedList;

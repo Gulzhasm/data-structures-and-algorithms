@@ -1,4 +1,4 @@
-package udemy.tree;
+package udemy.tree.binary.basics;
 
 import java.util.ArrayList;
 

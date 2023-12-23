@@ -1,4 +1,4 @@
-package udemy.tree;
+package udemy.tree.binary.basics;
 
 public class Main {
     public static void main(String[] args) {

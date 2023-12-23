@@ -1,4 +1,4 @@
-package udemy.tree.binary;
+package udemy.tree.binary.linkedListImpl;
 
 public class BinaryNode {
     public String value;
