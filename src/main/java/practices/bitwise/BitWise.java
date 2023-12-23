@@ -6,25 +6,9 @@ import java.util.*;
 
 public class BitWise {
     public static void main(String[] args) {
-        int n = 68;
-        //System.out.println(isOdd(n));
-        int[] arr = {3,2,1,5,6,4}; // 1 2 2 3 3 4 5 5 6
-
-        //System.out.println(singleNumber(arr));
-        //System.out.println(getSum(2, 3));
-        System.out.println(findKthLargest(arr, 2));
+        System.out.println(("11100"));
     }
-/*
-Example 1:
 
-Input: nums = [3,2,1,5,6,4], k = 2 // 1 2 3 4 5 6
-Output: 5
-Example 2:
-
-Input: nums = [3,2,3,1,2,4,5,5,6], k = 4 //1 2 3 4 5 6
-Output: 4
-
- */
     public static int findKthLargest(int[] nums, int k) { //1 2 3 4 5 6
         Arrays.sort(nums);
         return nums[nums.length - k];
