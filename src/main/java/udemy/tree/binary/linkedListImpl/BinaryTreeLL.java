@@ -69,7 +69,7 @@ public class BinaryTreeLL {
 
     //search
     public void search(String value) { // O(N), SC -> O(N) -> using Queue
-        Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+        Queue<BinaryNode> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) { // O(N)
