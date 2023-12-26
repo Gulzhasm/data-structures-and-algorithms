@@ -11,7 +11,7 @@ public class Dec18 {
         //Input: word1 = "ab", word2 = "pqrs"
         //Output: "apbqrs"
         //System.out.println(mergeAlternately(word1, word2));
-        System.out.println(findAnyRepeatedNumber(arr));
+       // System.out.println(findAnyRepeatedNumber(arr));
     }
 
     static int findAnyRepeatedNumber1(int[] arr) { //O(NlogN)
@@ -27,21 +27,6 @@ public class Dec18 {
         return repeated;
     }
 
-    static int findAnyRepeatedNumber(int[] arr) {
-        int slow = arr[0];
-        int fast = arr[0];
-        do {
-            slow = arr[slow];
-            fast = arr[arr[fast]];
-        } while(slow != fast);
-
-        slow = arr[0];
-        while (slow != fast) {
-            slow = arr[slow];
-            fast = arr[fast];
-        }
-        return fast;
-    }
 
     //O(N)
     public static String mergeAlternately(String word1, String word2) {
