@@ -19,6 +19,7 @@ public class Main {
         g.addUndirectedEdge(1,4);
         g.addUndirectedEdge(2,3);
         g.addUndirectedEdge(3,4);
-        System.out.println(g.toString());
+
+        g.dfs();
     }
 }
