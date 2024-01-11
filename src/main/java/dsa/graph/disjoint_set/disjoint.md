@@ -1,0 +1,3 @@
+-make set  - makeSet(N) - used to create initial set
+-union set - union(x,uy) - merge two given sets
+-find set - findSet(x) - return the set name 
