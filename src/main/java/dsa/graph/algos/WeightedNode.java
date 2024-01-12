@@ -1,4 +1,4 @@
-package dsa.graph.disjoint_set;
+package dsa.graph.algos;
 
 import java.util.ArrayList;
 import java.util.HashMap;

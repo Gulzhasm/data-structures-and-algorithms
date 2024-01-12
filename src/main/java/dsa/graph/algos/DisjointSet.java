@@ -1,6 +1,5 @@
-package dsa.graph.disjoint_set;
+package dsa.graph.algos;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class DisjointSet {
