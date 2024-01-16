@@ -1,18 +1,18 @@
 package leetcode.linked_list;
 
 
-class ListNode {
+class ListNodee {
     int val;
-    ListNode next;
+    ListNodee next;
 
-    ListNode() {
+    ListNodee() {
     }
 
-    ListNode(int val) {
+    ListNodee(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    ListNodee(int val, ListNodee next) {
         this.val = val;
         this.next = next;
     }
@@ -20,9 +20,48 @@ class ListNode {
 
 class Solution {
 
-    public boolean hasCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public ListNodee middleNode(ListNodee head) {
+      ListNodee fast = head;
+      ListNodee slow = head;
+
+      while(fast != null && fast.next != null){
+          slow = slow.next;
+          fast = fast.next.next;
+      }
+      return slow;
+    }
+
+    public boolean isHappy(int n) {
+        int slow = n;
+        int fast = n;
+        do {
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        } while (slow != fast);
+        if (slow == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    private int findSquare(int n) {
+        int ans = 0;
+        while (n > 0) {
+            int rem = n % 10;
+            ans += rem * rem;
+            n = n / 10;
+        }
+        return ans;
+    }
+
+    //TODO comeback and solve
+    public ListNodee detectCycle(ListNodee head) {
+        return head;
+    }
+
+    public boolean hasCycle(ListNodee head) {
+        ListNodee slow = head;
+        ListNodee fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -33,15 +72,15 @@ class Solution {
         return false;
     }
 
-    public int countCycles(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public int cycleLength(ListNodee head) {
+        ListNodee slow = head;
+        ListNodee fast = head;
 
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (fast == slow) {
-                ListNode temp = slow;
+                ListNodee temp = slow;
                 int count = 0;
                 do {
                     temp = temp.next;
@@ -55,9 +94,9 @@ class Solution {
         return 0;
     }
 
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode ans = new ListNode();
-        ListNode node = ans;
+    public ListNodee mergeTwoLists(ListNodee list1, ListNodee list2) {
+        ListNodee ans = new ListNodee();
+        ListNodee node = ans;
 
         while (list1 != null && list2 != null) {
             if (list1.val < list2.val) {
@@ -73,8 +112,8 @@ class Solution {
         return ans.next;
     }
 
-    public ListNode deleteDuplicates(ListNode node) {
-        ListNode head = node;
+    public ListNodee deleteDuplicates(ListNodee node) {
+        ListNodee head = node;
         while (node.next != null) {
             if (node.val == node.next.val) {
                 node.next = node.next.next;
