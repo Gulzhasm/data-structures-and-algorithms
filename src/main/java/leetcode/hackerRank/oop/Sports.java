@@ -1,4 +1,4 @@
-package leetcode.hackerRank;
+package leetcode.hackerRank.oop;
 
 public class Sports {
     String getName(){

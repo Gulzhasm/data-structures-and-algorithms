@@ -1,4 +1,4 @@
-package practices.interepam;
+package leetcode.hackerRank.task;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,25 +22,6 @@ public class Task {
         System.out.print(result + " ");
     }
 
-// Given an array nums of integers, return how many of them contain an even number of digits.
-// Input: nums = [12,345,2,6,7896]
-// Output: 2
-
-    public static int findNumbers(int[] nums) {
-        int count = 0;
-        for (int num : nums) {
-            int digitsCount = 0;
-            int n = num;
-            while (n > 0) {
-                digitsCount++;
-                n = n / 10;
-            }
-            if (digitsCount % 2 == 0) {
-                count++;
-            }
-        }
-        return count;
-    }
 }
 
 

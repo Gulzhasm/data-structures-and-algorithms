@@ -24,8 +24,5 @@ class Solution {
     }
 }
 
-//    MotorCycle() {
-//    System.out.println("Hello I am a motorcycle, I am " + whoAmI());
-//    System.out.println("My ancestor is a cycle who is " + super.whoAmI());
-//    }
+
 

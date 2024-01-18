@@ -1,4 +1,4 @@
-package leetcode.hackerRank;
+package leetcode.hackerRank.oop;
 
 public class Arithmetic{
     public int add(int a, int b){
