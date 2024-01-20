@@ -5,15 +5,52 @@ import java.util.*;
 public class Jan19 {
 
     public static void main(String[] args) {
-        int[] nums = {4, 3, 2, 7, 8, 2, 3, 1};
+        int[] nums = {1, 1, 2, 2};
+        //2 3 3 4 5 6  i+1 !=j
+        //2 2 i+1 != nums[i]
 
-        //        Output: [2,3]
-
-        System.out.println(findDuplicates(nums));
+        //        Output: 4,3,2,7,8,2,3,1 ->5,6
 
 
     }
 
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> ans = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        for (int i = 1; i <= nums.length; i++) {
+            if (!set.contains(i)) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    public static int[] findErrorNums(int[] nums) {
+        int[] ans = new int[2];
+
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) {
+                ans[0] = nums[i];
+            }
+            set.add(nums[i]);
+        }
+
+        //find what is missing
+        for (int i = 1; i <= nums.length; i++) {
+            if (!set.contains(i)) {
+                ans[1] = i;
+                break;
+            }
+        }
+
+        return ans;
+    }
 
 
     public static List<Integer> findDuplicates(int[] nums) {

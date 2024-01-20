@@ -1,4 +1,4 @@
-package coursera;
+package coursera.intro;
 
 public class HelloWorld {
     public static void main(String[] args) {
