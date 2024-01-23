@@ -1,7 +1,6 @@
 package dsa.dynamic_programming;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Fibo {
     public static void main(String[] args) {
@@ -36,4 +35,5 @@ public class Fibo {
         }
         return list.get(n - 1);
     }
+
 }
