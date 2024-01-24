@@ -1,12 +1,65 @@
 package leetcode.leetcode.daily.january;
 
+import java.util.Arrays;
+
 public class Jan24 {
 
     public static void main(String[] args) {
-        int[] arr ={2,3,1,2,4,3};
-        System.out.println(minSubArrayLen(7, arr));
+        int[] arr ={1,1,1,2,2,3};
+        System.out.println(removeDuplicates( arr));
 
     }
+
+    public double findMaxAverage(int[] nums, int k) {
+        //1. sum till 0 to k and assign it as max
+        // 2. use sliding window, add next - remove first - find max
+
+        long sum = 0;
+        for(int i = 0; i < k; i++){
+            sum+= nums[i];
+        }
+        long max = sum;
+
+        for(int j = k; j < nums.length; j++){
+            sum += nums[j] - nums[j-k];
+            max = Math.max(max, sum);
+        }
+        return max * 1.0/k;
+
+    }
+
+    public static  int removeDuplicates(int[] nums) {
+        int fast = 2;
+
+        for(int slow = 2; slow < nums.length;  slow++){
+            if(nums[slow] != nums[fast-2]){
+                nums[fast++] = nums[slow];
+            }
+        }
+        return fast;
+    }
+
+    public static int removeElement(int[] nums, int val) {
+        int idx =0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != val){
+                nums[idx] = nums[i];
+                idx++;
+            }
+        }
+
+        System.out.println(Arrays.toString(nums));
+
+        return idx;
+
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        //use sort, compare first and last
+
+        return "";
+    }
+
 
     public static int minSubArrayLen(int target, int[] nums) {// 1 2 2 3 3 4  t =7
         int pSum = 0;
