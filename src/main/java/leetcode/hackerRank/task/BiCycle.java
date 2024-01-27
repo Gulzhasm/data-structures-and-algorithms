@@ -1,14 +1,14 @@
 package leetcode.hackerRank.task;
 
 class BiCycle {
-    String whoAmI() {
+    String definition() {
         return "a vehicle with pedals.";
     }
 }
 
 class MotorCycle extends BiCycle {
     @Override
-    String whoAmI() {
+    String definition() {
         return "a cycle with an engine.";
     }
 }
@@ -24,5 +24,12 @@ class Solution {
     }
 }
 
+/*
 
+    public MotorCycle() {
+        System.out.println("Hello! Hello I am a motorcycle. I am " + definition());
+        System.out.println("My ancestor is a cycle who is " + super.definition());
+    }
+
+ */
 

@@ -27,7 +27,8 @@ public class Task {
 
     /*
 
-    WebDriver webDriver;
+    WebDriver webDriver = new ChromeDriver();
+
     List<String> actualHeaders = new ArrayList<>();
     By tableHeaders = By.xpath("//th[text()='id']/..");
 
