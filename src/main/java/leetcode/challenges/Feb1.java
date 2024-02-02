@@ -35,15 +35,16 @@ public static void main(String[] args) {
                 tStack.add(t.charAt(i));
             }
         }
-        if(sStack.size() != tStack.size()){
+        if(sStack.size() != tStack.size()) {
             return false;
-        } else {
+
+        }
             for (int i = 0; i < sStack.size(); i++) {
                 if(sStack.get(i) != tStack.get(i)){
                     return false;
                 }
             }
-        }
+
         return true;
     }
 
