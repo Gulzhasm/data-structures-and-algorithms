@@ -1,4 +1,4 @@
-package leetcode.challenges.january;
+package leetcode.challenges.february;
 
 import java.util.ArrayList;
 import java.util.List;

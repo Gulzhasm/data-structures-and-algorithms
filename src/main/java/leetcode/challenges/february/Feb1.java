@@ -1,4 +1,4 @@
-package leetcode.challenges;
+package leetcode.challenges.february;
 
 import java.util.Arrays;
 import java.util.Stack;
