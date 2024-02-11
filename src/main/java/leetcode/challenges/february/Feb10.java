@@ -1,10 +1,33 @@
 package leetcode.challenges.february;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Feb10 {
     public static void main(String[] args) {
         System.out.println(reverseVowels("hello"));
+    }
+
+    //Question 3
+    //Decimal dominants. Given an array with n keys, design an algorithm to find all values that occur more than
+    //n/10 times. The expected running time of your algorithm should be linear.
+    public static List<Integer> decDom(int[] arr){
+        List<Integer> ans = new ArrayList<>();
+        int n = arr.length/10;
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int num : arr){
+         map.put(num, map.getOrDefault(num, 0)+1);
+        }
+
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() > n){
+                ans.add(entry.getKey());
+            }
+        }
+        return ans;
     }
 
     //Input: s = "hello"
