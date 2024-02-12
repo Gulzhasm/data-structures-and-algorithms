@@ -1,0 +1,71 @@
+S.O.L.I.D.
+
+Why do we need SOLID?
+If you join project #1, let's say e-commerce project, and the team does not use SOLID or any type of principles and patterns.
+And You joined the second project - the social media project,
+and you again have to learn from scratch everything as the team does not apply any patterns and principles. And your Learning Curve takes longer time.
+So, in order to have a common language with the team and developers, we need common principles and patterns.
+For example: You need to use the Newton's law and formula, assume you have to calculate that formula from scratch.
+It takes much longer time, than using already developed formula sheet and you just have to use the formula. It applies to patterns and principles too.
+
+For many years, developers tried to overcome the issues when developing a GOOD program.
+What is the good code?
+- Scalable
+- Learning curve needs to take a minimum time
+- A simple, elegant code
+And hence, there are patterns and principles to follow.
+
+Today, in this post, we will deep dive into SOLID's first principle - Single Responsibility.
+
+S - Single Responsibility.
+One Class = One Task.
+A class should only have one responsibility.
+
+So, let's have an user class
+
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String username;
+    private String password;
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+If the client comes and asks to add getUser(), getTasks and getProjectID business logics, without using SOLID principles, we'd add methods into the User Class, and it would have been GodObject principle.
+So, how to implement SOLID and add logics based on the client needs?
+We will have to create a separate models for Task and Project and then create a CrudService Interface and create
+public interface CrudService<T, ID> {
+
+    T save(T object);
+
+    T findById(ID id);
+
+    List<T> findAll();
+
+    void deleteById(ID id);
+
+    void update(T object);
+}
+
+public interface UserService extends CrudService<UserDTO, String> {
+    List<UserDTO> findManagers();
+
+    List<UserDTO> findAllEmployees();
+}
+
+Summary:
+- Smaller, well-organized classes are easier to search
+- we can add logics easily
+- we do not use anti-pattern GodObject
+- A class encapsulates only one task
+- A class with one responsibility will have far fewer test cases
+
+
+
+
+
