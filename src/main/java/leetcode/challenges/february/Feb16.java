@@ -3,13 +3,59 @@ package leetcode.challenges.february;
 import java.util.*;
 
 public class Feb16 {
-    //Input: arr = [4,3,1,1,3,3,2], k = 3
-    //Output: 2
-    //Explanation: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will be left.
+
     public static void main(String[] args) {
         int[] arr = {2,1,1,3,3,3}; // 1 2
         System.out.println(findLeastNumOfUniqueInts(arr, 3));
 
+    }
+
+
+    //Input: matrix = [[1,3,5,7],
+    //                [10,11,16,20],
+    //                [23,30,34,60]], target = 3
+    //Output: true
+    public boolean searchMatrix(int[][] M, int target) {//BF
+        for (int[] ints : M) {
+            for (int anInt : ints) {
+                if (anInt == target) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean searchMatrixBS(int[][] M, int target) {//BF
+        int r = M.length; int c = M[0].length;
+        int lo = 0, hi = (r*c)-1;
+        while(lo <= hi) {
+            int m = lo +(hi-lo)/2;
+            if(M[m/c][m%c] < target){
+                lo = m + 1;
+            } else if(M[m/c][m%c] > target){
+                hi = m -1;
+            } else {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public int search(int[] nums, int target) {
+        int lo = 0, hi = nums.length-1;
+
+        while(lo <= hi){
+            int mid = lo +(hi-lo)/2;
+            if(nums[mid] < target){
+                lo = mid + 1;
+            } else if(nums[mid] > target){
+                hi = mid -1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     public static int findLeastNumOfUniqueInts(int[] arr, int k) {
