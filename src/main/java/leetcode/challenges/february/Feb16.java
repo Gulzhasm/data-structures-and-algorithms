@@ -9,6 +9,40 @@ public class Feb16 {
         System.out.println(findLeastNumOfUniqueInts(arr, 3));
 
     }
+    //nums = [-1,0,1,2,-1,-4]
+    public List<List<Integer>> threeSum(int[] a) {
+        Arrays.sort(a);
+        List<List<Integer>> ans = new ArrayList<>();
+        for(int i = 0; i < a.length; i++){
+            List<Integer> curr = new ArrayList<>();
+            for(int j = i+1; j < a.length; j++){
+                int t = bs(a, -(a[i]+a[j]));
+                if(t != -1){
+                    curr.add(a[i]);
+                    curr.add(a[j]);
+                    curr.add(a[t]);
+                }
+            }
+            ans.add(curr);
+        }
+
+        return ans;
+    }
+
+    private int bs(int[] a, int key){
+        int lo =0, hi = a.length-1;
+        while(lo <= hi){
+            int mid = lo + (hi -lo)/2;
+            if(a[mid] < key){
+                lo = mid +1;
+            }else if(a[mid] > key){
+                hi = mid -1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
 
 
     //Input: matrix = [[1,3,5,7],
