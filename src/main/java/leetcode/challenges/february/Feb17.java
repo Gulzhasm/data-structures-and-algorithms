@@ -18,7 +18,10 @@ public class Feb17 {
                 }
             }
             i++;
-            if((i+1 != h.length -1 && h[i] < h[i+1]) && bricks <=0 && ladders <=0){
+            if(bricks <=0 && ladders <=0 && i+1 != h.length-1){
+                if(h[i] > h[i+1]){
+                    i++;
+                }
                 break;
             }
         }
