@@ -1,11 +1,28 @@
 package leetcode.challenges.february;
 
-import practices.arrays.Input;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Feb18 {
+    public static void main(String[] args) {
+        //  System.out.println(Arrays.toString(
+        System.out.println(Arrays.toString(numberGame(new int[]{5,4,2,3})));
+    }
+    public static int[] numberGame(int[] nums) {
+        int[] ans = new int[nums.length];
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int num : nums){
+            pq.offer(num);
+        }
+        int i =0;
+        while(!pq.isEmpty()){
+            int a = pq.poll();
+            int b = pq.poll();
+            ans[i++] = b;
+            ans[i++] = a;
+        }
+        return ans;
+    }
 
     public static String[] findRelativeRanks(int[] arr) {
         String[] ans = new String[arr.length];
@@ -30,8 +47,5 @@ public class Feb18 {
         return ans;
     }
 
-    public static void main(String[] args) {
-        //  System.out.println(Arrays.toString(
-        findRelativeRanks(new int[]{10, 3, 8, 9, 4});
-    }
+
 }
