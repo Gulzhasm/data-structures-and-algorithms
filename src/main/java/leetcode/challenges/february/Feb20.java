@@ -30,26 +30,27 @@ public class Feb20 {
 
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         List<List<Integer>> ans = new ArrayList<>();
-
-        Map<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < nums1.length; i++) {
-            map.put(nums1[i], i);
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+        for(int n1: nums1){
+            set1.add(n1);
         }
-        List<Integer> curr = new ArrayList<>();
-        for (int num : nums2) {
-            if (!map.containsKey(num)) {
-                curr.add(num);
+        for(int n2: nums2){
+            set2.add(n2);
+        }
+        List<Integer> l1 = new ArrayList<>();
+
+        for(int s : set1){
+            if(!set2.contains(s)){
+                l1.add(s);
             } else {
-                map.remove(num);
+                set2.remove(s);
             }
         }
-        ans.add(curr);
-        List<Integer> curr1 = new ArrayList<>();
-        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
-            curr1.add(entry.getKey());
-        }
-        ans.add(curr1);
+
+        List<Integer> l2 = new ArrayList<>(set2);
+        ans.add(l1);
+        ans.add(l2);
         return ans;
     }
 }
