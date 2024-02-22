@@ -3,6 +3,9 @@ package leetcode.challenges.february;
 import java.util.*;
 
 public class Feb21 {
+    public static void main(String[] args) {
+
+    }
 
     public  boolean closeStrings(String w1, String w2) {
         if (w1.length() != w2.length()) return false;
