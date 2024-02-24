@@ -1,9 +1,9 @@
-package leetcode.topicWise.graph;
+package leetcode.topicWise.graph.dfs;
 
 import java.util.Arrays;
 
 public class AdjacencyMatrixDFS {
-    public boolean validPath(int n, int[][] edges, int source, int destination) {
+    public boolean validPath(int n, int[][] edges, int source, int destination) {//O(V^2)
         boolean[][] graph = new boolean[n][n];
         for(boolean[] rows : graph){
             Arrays.fill(rows, false);
