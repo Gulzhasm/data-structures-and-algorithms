@@ -1,4 +1,4 @@
-package leetcode.topicWise.graph.practises;
+package leetcode.topicWise.trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
