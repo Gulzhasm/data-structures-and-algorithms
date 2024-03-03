@@ -34,7 +34,7 @@ class Solution {
         for (int i = 0; i < size - n - 1; i++) {
             temp = temp.next;
         }
-        temp = temp.next.next;
+        temp.next = temp.next.next;
         return head;
     }
 
@@ -51,5 +51,36 @@ class Solution {
 
     }
 
+    public ListNode deleteMiddle(ListNode head) {
+        ListNode node = head;
+        int N = 0;
+        if(head == null ) return null;
 
+        while(node != null){
+            N++;
+            node = node.next;
+        }
+        if(N == 1) return head.next;
+
+        node = head;
+        for(int i = 0; i<N/2-1; i++){
+            node = node.next;
+        }
+
+        node.next = node.next.next;
+        return head;
+    }
+
+
+    public ListNode deleteMiddleFS(ListNode head) {
+        ListNode fast = head.next.next, slow = head;
+        if(head == null || head.next == null) return null;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+        return head;
+    }
 }
