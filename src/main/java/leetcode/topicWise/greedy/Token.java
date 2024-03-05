@@ -23,5 +23,17 @@ public class Token {
         return score;
     }
 
+    public int minimumLength(String st) {
+        int s = 0, e = st.length()-1;
+
+
+        while(s < e && st.charAt(s) == st.charAt(e)){
+            char ch = st.charAt(s);
+            while (s <= e && st.charAt(s) == ch) s++;
+            while (s <= e && st.charAt(e) == ch) e--;
+        }
+        return  e - s +1;
+    }
+
 
 }
