@@ -19,6 +19,20 @@ class ListNode {
 }
 
 class Solution {
+
+    public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) return true;
+        }
+
+        return false;
+    }
+
     //Input: head = [1,2,3,4,5], n = 2
     //Output: [1,2,3,5]
     public ListNode removeNthFromEnd(ListNode head, int n) {
