@@ -1,14 +1,11 @@
 package leetcode.topicWise.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Arrays {
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 2, 3, 1, 4};
-        System.out.println(maxFrequencyElements(nums));
+public class Array {
 
-    }
 
     public static int maxFrequencyElements(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -32,5 +29,22 @@ public class Arrays {
             else if(n1[i] == n2[j]) return n1[i];
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(sumOddLengthSubarrays(new int[]{1,4,2,5,3})));
+
+    }
+
+    public static  int[] sumOddLengthSubarrays(int[] arr) {
+        int N = arr.length;
+        int[] pSum = new int[N];
+        pSum[0] = arr[0];
+
+        for(int i = 1; i < N; i++){
+            int prev = pSum[i-1];
+                pSum[i] = prev +arr[i];
+        }
+     return pSum;
     }
 }
