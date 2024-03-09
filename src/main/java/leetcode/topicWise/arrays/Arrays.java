@@ -22,4 +22,15 @@ public class Arrays {
         }
         return freq == 0 ? map.size() : freq;
     }
+
+    public int getCommon(int[] n1, int[] n2) {
+        int  i = 0, j = 0;
+
+        while(i < n1.length && j < n2.length){
+            if(n1[i] < n2[j]) i++;
+            else if(n1[i] > n2[j]) j++;
+            else if(n1[i] == n2[j]) return n1[i];
+        }
+        return -1;
+    }
 }
