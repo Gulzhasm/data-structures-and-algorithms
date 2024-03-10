@@ -1,10 +1,29 @@
 package leetcode.topicWise.arrays;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Array {
+
+    public int[] intersection(int[] n1, int[] n2) {
+        Set<Integer> s1 = new HashSet<>();
+        Set<Integer> s2 = new HashSet<>();
+
+        for(int n : n1){
+            s1.add(n);
+        }
+
+        for(int n : n2){
+            if(s1.contains(n)) s2.add(n);
+        }
+
+        int[] ans = new int[s2.size()];
+        int i =0;
+
+        for(int n : s2){
+            ans[i++] = n;
+        }
+        return ans;
+    }
 
 
     public static int maxFrequencyElements(int[] nums) {
