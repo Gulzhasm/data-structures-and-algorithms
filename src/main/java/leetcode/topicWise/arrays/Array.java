@@ -4,6 +4,31 @@ import java.util.*;
 
 public class Array {
 
+    //Input: nums = [1,2,3,4] 1 2 6 24 -> 24 12
+    //Output: [24,12,8,6]
+    public static int[] productExceptSelf(int[] nums) {
+        int N = nums.length; int lp = 1, rp =1;
+        int[] res = new int[N];
+        for(int i = 0; i < N; i++){
+           res[i] = lp;
+           lp *= nums[i];
+        }
+
+
+        for(int i = N-1; i >= 0; i--){
+         res[i] = res[i] * rp;
+          rp *= nums[i];
+        }
+        return res;
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,4};
+
+        System.out.println(Arrays.toString(productExceptSelf(nums)));
+    }
+
     public int[] intersection(int[] n1, int[] n2) {
         Set<Integer> s1 = new HashSet<>();
         Set<Integer> s2 = new HashSet<>();
@@ -50,10 +75,7 @@ public class Array {
         return -1;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(sumOddLengthSubarrays(new int[]{1,4,2,5,3})));
 
-    }
 
     public static  int[] sumOddLengthSubarrays(int[] arr) {
         int N = arr.length;
