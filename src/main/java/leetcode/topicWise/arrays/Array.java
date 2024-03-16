@@ -4,6 +4,31 @@ import java.util.*;
 
 public class Array {
 
+
+    public static void main(String[] args) {
+        int[] nums = {0,1};
+
+        System.out.println(findMaxLength(nums));
+    }
+
+    public static int findMaxLength(int[] n) {
+        int ans = 0, N = n.length;
+
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        map.put(0, -1);
+
+        for(int i = 0; i <N; i++){
+            sum += n[i] == 0? -1 : n[i];
+
+            if(map.containsKey(sum)){
+                ans = Math.max(ans, i - map.get(sum));
+            } else map.put(sum, i);
+        }
+        return ans;
+
+    }
+
     //Input: nums = [1,2,3,4] 1 2 6 24 -> 24 12
     //Output: [24,12,8,6]
     public static int[] productExceptSelf(int[] nums) {
@@ -23,11 +48,6 @@ public class Array {
     }
 
 
-    public static void main(String[] args) {
-        int[] nums = {1,2,3,4};
-
-        System.out.println(Arrays.toString(productExceptSelf(nums)));
-    }
 
     public int[] intersection(int[] n1, int[] n2) {
         Set<Integer> s1 = new HashSet<>();
