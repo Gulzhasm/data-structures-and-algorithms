@@ -29,6 +29,13 @@ public class Array {
 
     }
 
+    public String destCity(List<List<String>> paths) {
+        Set<String> set = new HashSet<>();
+        for (List<String> l: paths) set.add(l.get(1));
+        for (List<String> l: paths) set.remove(l.get(0));
+        return set.iterator().next();
+    }
+
     //Input: nums = [1,2,3,4] 1 2 6 24 -> 24 12
     //Output: [24,12,8,6]
     public static int[] productExceptSelf(int[] nums) {
