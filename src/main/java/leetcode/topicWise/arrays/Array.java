@@ -36,8 +36,6 @@ public class Array {
         return set.iterator().next();
     }
 
-    //Input: nums = [1,2,3,4] 1 2 6 24 -> 24 12
-    //Output: [24,12,8,6]
     public static int[] productExceptSelf(int[] nums) {
         int N = nums.length; int lp = 1, rp =1;
         int[] res = new int[N];
@@ -45,16 +43,12 @@ public class Array {
            res[i] = lp;
            lp *= nums[i];
         }
-
-
-        for(int i = N-1; i >= 0; i--){
+       for(int i = N-1; i >= 0; i--){
          res[i] = res[i] * rp;
           rp *= nums[i];
         }
         return res;
     }
-
-
 
     public int[] intersection(int[] n1, int[] n2) {
         Set<Integer> s1 = new HashSet<>();
@@ -76,7 +70,6 @@ public class Array {
         }
         return ans;
     }
-
 
     public static int maxFrequencyElements(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
