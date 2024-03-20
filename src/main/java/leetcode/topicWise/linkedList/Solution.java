@@ -20,25 +20,25 @@ class ListNode {
 
 class Solution {
 
-        public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-            ListNode end = list1, start = null;
-            for(int i = 0; i < b; i++, end = end.next){
-                if(i == a -1) start = end;
-            }
-            start.next = list2;
-
-            while(list2.next!=null) list2 = list2.next;
-            list2.next = end.next;
-            end.next = null;
-            return list1;
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+        ListNode end = list1, start = null;
+        for (int i = 0; i < b; i++, end = end.next) {
+            if (i == a - 1) start = end;
         }
+        start.next = list2;
+
+        while (start.next != null) start = start.next;
+        start.next = end.next;
+
+        return list1;
+    }
 
 
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
@@ -49,10 +49,10 @@ class Solution {
         ListNode fast = head;
         ListNode slow = head;
 
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast) return true;
+            if (slow == fast) return true;
         }
 
         return false;
@@ -79,9 +79,9 @@ class Solution {
 
     public ListNode removeNthFromEndFS(ListNode head, int n) {
         ListNode fast = head, slow = head;
-        for(int i = 0; i <n; i++) fast = fast.next;
-        if(fast == null) return head.next;
-        while(fast.next != null){
+        for (int i = 0; i < n; i++) fast = fast.next;
+        if (fast == null) return head.next;
+        while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
@@ -93,16 +93,16 @@ class Solution {
     public ListNode deleteMiddle(ListNode head) {
         ListNode node = head;
         int N = 0;
-        if(head == null ) return null;
+        if (head == null) return null;
 
-        while(node != null){
+        while (node != null) {
             N++;
             node = node.next;
         }
-        if(N == 1) return head.next;
+        if (N == 1) return head.next;
 
         node = head;
-        for(int i = 0; i<N/2-1; i++){
+        for (int i = 0; i < N / 2 - 1; i++) {
             node = node.next;
         }
 
@@ -113,8 +113,8 @@ class Solution {
 
     public ListNode deleteMiddleFS(ListNode head) {
         ListNode fast = head.next.next, slow = head;
-        if(head == null || head.next == null) return null;
-        while(fast != null && fast.next != null){
+        if (head == null || head.next == null) return null;
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
