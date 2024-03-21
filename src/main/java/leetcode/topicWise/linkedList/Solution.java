@@ -20,6 +20,18 @@ class ListNode {
 
 class Solution {
 
+    public ListNode reverseList(ListNode head) {
+        ListNode newNode = null;
+        ListNode current = head;
+
+        while (current != null) {
+            ListNode temp = current.next;
+            current.next = newNode;
+            current = temp;
+        }
+        return newNode;
+    }
+
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
         ListNode end = list1, start = null;
         for (int i = 0; i < b; i++, end = end.next) {
