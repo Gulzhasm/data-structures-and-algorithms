@@ -19,6 +19,17 @@ class ListNode {
 }
 
 class Solution {
+    public static void main(String[] args) {
+        int[] arr = {1,1,3,2,2,1,1};
+        System.out.println(isPalindromeArr(arr));
+    }
+    public static boolean isPalindromeArr(int[] arr){
+        int N = arr.length;
+        for(int i = 0; i < N/2; i++){
+            if(arr[i] != arr[N-i-1]) return false;
+        }
+        return true;
+    }
 
     public boolean isPalindrome(ListNode head) {
         ListNode reverse = reverseList(copy(head));
@@ -45,6 +56,7 @@ class Solution {
         }
         return prev;
     }
+
     public ListNode copy(ListNode node){
         ListNode newHead = new ListNode(node.val);
         ListNode current = newHead;
@@ -67,6 +79,7 @@ class Solution {
         while (current != null) {
             ListNode temp = current.next;
             current.next = newNode;
+            newNode = current;
             current = temp;
         }
         return newNode;
