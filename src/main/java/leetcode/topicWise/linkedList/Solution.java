@@ -20,6 +20,46 @@ class ListNode {
 
 class Solution {
 
+    public boolean isPalindrome(ListNode head) {
+        ListNode reverse = reverseList(copy(head));
+        while (head != null && reverse != null) {
+            if (head.val != reverse.val) {
+                return false;
+            }
+            head = head.next;
+            reverse = reverse.next;
+        }
+        return true;
+    }
+
+    //Reverse Linked List
+    private ListNode reverseList1(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null) {
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        return prev;
+    }
+    public ListNode copy(ListNode node){
+        ListNode newHead = new ListNode(node.val);
+        ListNode current = newHead;
+        node = node.next;
+
+        while(node != null){
+            current.next = new ListNode(node.val);
+            node = node.next;
+            current = current.next;
+        }
+
+        return newHead;
+    }
+
+
     public ListNode reverseList(ListNode head) {
         ListNode newNode = null;
         ListNode current = head;
