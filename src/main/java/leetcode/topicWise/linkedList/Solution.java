@@ -19,6 +19,48 @@ class ListNode {
 }
 
 class Solution {
+
+    //L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+    // 1 2 3 4 -> 1 4 2 3
+    public void reorderList(ListNode head) {
+       //find the middle
+        //reverse the left side
+        //merge one by one
+        ListNode fast = head, slow = head, prev =null, left = head;
+        while(fast !=null && fast.next != null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+
+        }
+        prev.next = null;
+
+        ListNode right = reverse(slow);
+
+        merge(left, right);
+
+    }
+
+    ListNode reverse(ListNode node){
+        ListNode prev = null;
+        ListNode current = node;
+
+        while(current != null && current.next != null){
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        return prev;
+    }
+
+    private static void merge(ListNode head1, ListNode head2) {
+        ListNode next = head1.next;
+        head1.next = head2;
+        head1 = head2;
+        head2 = next;
+    }
+
     public static void main(String[] args) {
         int[] arr = {1,1,3,2,2,1,1};
         System.out.println(isPalindromeArr(arr));
