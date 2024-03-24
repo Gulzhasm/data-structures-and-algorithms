@@ -3,13 +3,24 @@ package leetcode.topicWise.arrays;
 import java.util.*;
 
 public class Array {
-
-
     public static void main(String[] args) {
-        int[] nums = {0,1};
+        int[] nums = {1,3,4,2,2};
 
-        System.out.println(findMaxLength(nums));
+        System.out.println(findDuplicate(nums));
     }
+    public  static int findDuplicate(int[] A) {
+        int dupe = 0, s = 0, n = 1;
+        Arrays.sort(A);
+        while(n < A.length){
+            if(A[s] == A[n]){
+                dupe = A[s];
+            }
+            s++; n++;
+        }
+     return dupe;
+    }
+
+
 
     public static int findMaxLength(int[] n) {
         int ans = 0, N = n.length;
