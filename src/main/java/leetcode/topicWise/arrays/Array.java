@@ -8,6 +8,21 @@ public class Array {
 
         System.out.println(findDuplicate(nums));
     }
+
+    public List<Integer> findDuplicates(int[] nums) { // Time complexity - O(N), Space Complexity O(N)
+        List<Integer> ans = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if(set.contains(num)) {
+                ans.add(num);
+            }
+            set.add(num);
+        }
+        return ans;
+    }
+
+
     public  static int findDuplicate(int[] A) {
         int dupe = 0, s = 0, n = 1;
         Arrays.sort(A);
