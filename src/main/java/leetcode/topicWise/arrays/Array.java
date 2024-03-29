@@ -4,25 +4,68 @@ import java.util.*;
 
 public class Array {
     public static void main(String[] args) {
-        int[] nums = {7,8,9,11,12};
+        int[] nums = {1, 3, 2, 3, 3};
 
-        System.out.println(firstMissingPositive(nums));
+        System.out.println(countSubarrays1(nums, 2));
+    }
+
+    public static  long countSubarrays1(int[] A, int k) {
+        long cnt = 0;
+        int r = 0, max = 0, currM = 0;
+        for (int n : A) {
+            max = Math.max(max, n);
+        }
+
+        for (int l = 0; l < A.length; l++) {
+            currM+= A[l] == max ? 1 : 0;
+            while (currM >= k)
+                currM -= A[r++] == max ? 1 : 0;
+
+            cnt += r;
+        }
+        return cnt;
+
+    }
+
+    public static long countSubarrays(int[] A, int k) {
+
+        long cnt = 0;
+        int r = 0, max = 0;
+        for (int n : A) {
+            max = Math.max(max, n);
+        }
+
+        for (int l = 0; l < A.length; l++) {
+            r = l + 1;
+            int lm = 0;
+            while (r < A.length) {
+                if (A[r] == max) lm++;
+                if (A[l] == max) lm++;
+
+                if (lm >= k) {
+                    cnt++;
+                }
+
+                r++;
+            }
+        }
+        return cnt;
     }
 
     //  [3,4,-1,1] 3 4 1
     public static int firstMissingPositive(int[] A) {
         int i = 0;
-        while(i < A.length){
-            if(A[i] == i+1 || A[i] <= 0 || A[i] > A.length) i++;
-            else if(A[A[i]-1] != A[i]) swap(A, i, A[i]-1);
+        while (i < A.length) {
+            if (A[i] == i + 1 || A[i] <= 0 || A[i] > A.length) i++;
+            else if (A[A[i] - 1] != A[i]) swap(A, i, A[i] - 1);
             else i++;
         }
         i = 0;
-        while(i < A.length && A[i] == i+1) i++;
-        return i+1;
+        while (i < A.length && A[i] == i + 1) i++;
+        return i + 1;
     }
 
-    private static void swap(int[] A, int i, int j){
+    private static void swap(int[] A, int i, int j) {
         int temp = A[i];
         A[i] = A[j];
         A[j] = temp;
