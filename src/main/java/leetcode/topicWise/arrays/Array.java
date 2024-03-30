@@ -4,22 +4,41 @@ import java.util.*;
 
 public class Array {
     public static void main(String[] args) {
-        int[] nums = {1, 3, 2, 3, 3};
+        int[] nums = {1,1,2,1,1};
 
-        System.out.println(countSubarrays1(nums, 2));
+        System.out.println(numberOfSubarrays(nums, 3));
+    }
+    public static int numberOfSubarrays(int[] A, int k) {
+        int res = 0, i = 0, j = 0, count = 0;
+        while(j < A.length) {
+            if (A[j] % 2 == 1) {
+                k--;
+                count = 0;
+            }
+            while (k == 0) {
+                if(A[i] % 2 == 1) {
+                    k++;
+                }
+                count++;
+                i++;
+            }
+            j++;
+            res += count;
+        }
+        return res;
     }
 
     public static  long countSubarrays1(int[] A, int k) {
         long cnt = 0;
-        int r = 0, max = 0, currM = 0;
+        int r = 0, max = 0, curr = 0;
         for (int n : A) {
             max = Math.max(max, n);
         }
 
         for (int l = 0; l < A.length; l++) {
-            currM+= A[l] == max ? 1 : 0;
-            while (currM >= k)
-                currM -= A[r++] == max ? 1 : 0;
+            curr+= A[l] == max ? 1 : 0;
+            while (curr >= k)
+                curr -= A[r++] == max ? 1 : 0;
 
             cnt += r;
         }
