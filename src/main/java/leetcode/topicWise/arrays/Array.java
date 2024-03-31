@@ -46,6 +46,18 @@ public class Array {
 
     }
 
+    public int[] sumZero(int n) {
+        int[] ans = new int[n];
+        int s = 0, e = n-1, init =1;
+        while(s < e){
+            ans[s++] = init;
+            ans[e--] = -init;
+            init++;
+        }
+        return ans;
+    }
+
+
     public static long countSubarrays(int[] A, int k) {
 
         long cnt = 0;
