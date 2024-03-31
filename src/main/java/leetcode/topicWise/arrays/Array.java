@@ -42,9 +42,29 @@ public class Array {
 
     }
     public static void main(String[] args) {
-        int[] nums = {5,7,7,8,8,10};
+        int[] nums = {5,7,8,10};
 
-        System.out.println(Arrays.toString(searchRange(nums, 8)));
+        System.out.println(containsDuplicate(nums));
+    }
+
+    public static  boolean containsDuplicateSort(int[] nums) {
+        Arrays.sort(nums);
+        int j = 0;
+
+        for(int i = 0; i < nums.length - 1; i++){
+        j = i + 1;
+        if(nums[i] == nums[j]) return true;
+    }
+      return false;
+}
+
+    public static  boolean containsDuplicate(int[] nums) {
+      Set<Integer> set = new HashSet<>();
+      for(int n : nums){
+          if(set.contains(n)) return true;
+          set.add(n);
+      }
+        return false;
     }
 
     public static int[] searchRange(int[] A, int target) {
