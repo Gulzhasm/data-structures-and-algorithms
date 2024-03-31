@@ -3,11 +3,7 @@ package leetcode.topicWise.arrays;
 import java.util.*;
 
 public class Array {
-    public static void main(String[] args) {
-        int[] nums = {1,1,2,1,1};
 
-        System.out.println(numberOfSubarrays(nums, 3));
-    }
     public static int numberOfSubarrays(int[] A, int k) {
         int res = 0, i = 0, j = 0, count = 0;
         while(j < A.length) {
@@ -44,6 +40,36 @@ public class Array {
         }
         return cnt;
 
+    }
+    public static void main(String[] args) {
+        int[] nums = {5,7,7,8,8,10};
+
+        System.out.println(Arrays.toString(searchRange(nums, 8)));
+    }
+
+    public static int[] searchRange(int[] A, int target) {
+        int idx = bs(A, target);
+        if( idx == -1) return new int[]{-1,-1};
+        else if(A[idx] == A[idx+1]) return new int[]{idx, idx+1};
+        else return new int[]{idx-1, idx};
+    }
+
+    private static int bs(int[] A, int target){
+        int lo = 0, hi = A.length-1;
+
+        while (lo <= hi) {
+
+            int mid = lo + (hi - lo)/2;
+            if(A[mid] > target){
+                hi = mid - 1;
+            }
+            else if (A[mid] < target){
+                lo = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     public int[] sumZero(int n) {
