@@ -4,6 +4,16 @@ import java.util.*;
 
 public class Array {
 
+    public int lengthOfLastWord(String s) {
+        int ans = 0;
+        s = s.trim();
+        for(int i = s.length()-1; i >=0; i--){
+            if(s.charAt(i) == ' ') break;
+            ans++;
+        }
+        return ans;
+    }
+
     public static int numberOfSubarrays(int[] A, int k) {
         int res = 0, i = 0, j = 0, count = 0;
         while(j < A.length) {
