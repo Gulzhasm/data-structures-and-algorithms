@@ -7,8 +7,30 @@ import java.util.Map;
 public class StringProblems {
     public static void main(String[] args) {
         String s = "egg", t = "add";
-        System.out.println(isIsomorphic(s, t));
+        System.out.println(pangrams("The string contains all letters in the English alphabet, so return pangram.\n" +
+                "\n"));
     }
+
+    public static String pangrams(String s) {
+        // Write your code here
+
+
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+       Map<Character, Integer> map = new HashMap<>();
+
+       for(char c: s.toUpperCase().toCharArray()){
+           map.put(c, map.getOrDefault(c,0)+1);
+        }
+
+       for(char c : alphabet.toCharArray()){
+           if(!map.containsKey(c))  return "not pangram";
+       }
+        return "pangram";
+    }
+
+
+
+
 
     public static boolean isIsomorphic(String s, String t) {
         Map<Character, Integer> first = new HashMap<>();
