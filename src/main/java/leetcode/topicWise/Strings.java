@@ -4,6 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Strings {
+
+    public int maxDepth(String s) {
+        int count = 0, max = 0;
+
+        for(char c : s.toCharArray()){
+            if(c == '('){
+                count++;
+                if(max < count){
+                    max = count;
+                }
+            } else if(c == ')') count--;
+        }
+        return max;
+    }
+
     public String customSortString(String order, String s) {
         StringBuilder sb = new StringBuilder();
         Map<Character, Integer> map = new HashMap<>();
