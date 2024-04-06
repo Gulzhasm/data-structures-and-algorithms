@@ -32,4 +32,26 @@ public static void main(String[] args) {
 
         return stack.isEmpty();
     }
+
+    public String minRemoveToMakeValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        int l = 0, r = 0;
+
+        for(char c : s.toCharArray()){
+            if(c == '(') l++;
+            else if(c == ')') r++;
+
+            if(r > l) r--;
+            else stack.push(c);
+        }
+
+        while(!stack.isEmpty()){
+            char curr = stack.pop();
+            if(l > r && curr == '(') l--;
+            else sb.append(curr);
+        }
+
+        return sb.reverse().toString();
+    }
 }
