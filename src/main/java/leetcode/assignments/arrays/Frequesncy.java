@@ -1,13 +1,14 @@
 package leetcode.assignments.arrays;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 public class Frequesncy {
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(frequency("hello")));
-
-    }
 
     private static int[] frequency(String s){
         int[] freq = new int[26];
@@ -39,4 +40,31 @@ public class Frequesncy {
         return count;
     }
 
+    //s = "leEeetcode"
+    public static  String makeGood(String s) {
+        Stack<Character> stack = new Stack<>();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(char c : s.toCharArray()){
+            if (!stack.isEmpty() && Math.abs(c - stack.peek()) == 32) {
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+
+        for (Character character : stack) {
+            stringBuilder.append(character);
+        }
+
+
+        return stringBuilder.toString();
+    }
+
+
+
+    public static void main(String[] args) {
+        System.out.println(makeGood("leEeetcode"));
+
+    }
 }
