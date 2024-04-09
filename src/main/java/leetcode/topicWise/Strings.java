@@ -122,7 +122,6 @@ class Solution {
             else if (l > r) l = l - r;
         }
         System.out.println(l + " " + r + " " + p);
-
         return ((p == 0) && l == r) || (r > 0 && (p != 0 && r == p)) || (l > 0 && (p != 0 && p == l));
 
     }

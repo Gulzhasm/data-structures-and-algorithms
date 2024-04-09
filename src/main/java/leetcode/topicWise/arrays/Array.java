@@ -7,8 +7,8 @@ public class Array {
     public int lengthOfLastWord(String s) {
         int ans = 0;
         s = s.trim();
-        for(int i = s.length()-1; i >=0; i--){
-            if(s.charAt(i) == ' ') break;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') break;
             ans++;
         }
         return ans;
@@ -16,13 +16,13 @@ public class Array {
 
     public static int numberOfSubarrays(int[] A, int k) {
         int res = 0, i = 0, j = 0, count = 0;
-        while(j < A.length) {
+        while (j < A.length) {
             if (A[j] % 2 == 1) {
                 k--;
                 count = 0;
             }
             while (k == 0) {
-                if(A[i] % 2 == 1) {
+                if (A[i] % 2 == 1) {
                     k++;
                 }
                 count++;
@@ -34,7 +34,7 @@ public class Array {
         return res;
     }
 
-    public static  long countSubarrays1(int[] A, int k) {
+    public static long countSubarrays1(int[] A, int k) {
         long cnt = 0;
         int r = 0, max = 0, curr = 0;
         for (int n : A) {
@@ -42,7 +42,7 @@ public class Array {
         }
 
         for (int l = 0; l < A.length; l++) {
-            curr+= A[l] == max ? 1 : 0;
+            curr += A[l] == max ? 1 : 0;
             while (curr >= k)
                 curr -= A[r++] == max ? 1 : 0;
 
@@ -51,49 +51,77 @@ public class Array {
         return cnt;
 
     }
+
     public static void main(String[] args) {
-        int[] nums = {5,7,8,10};
+        int[] nums = {5, 7, 8, 10};
 
         System.out.println(containsDuplicate(nums));
     }
 
-    public static  boolean containsDuplicateSort(int[] nums) {
+    public static boolean containsDuplicateSort(int[] nums) {
         Arrays.sort(nums);
         int j = 0;
 
-        for(int i = 0; i < nums.length - 1; i++){
-        j = i + 1;
-        if(nums[i] == nums[j]) return true;
-    }
-      return false;
-}
-
-    public static  boolean containsDuplicate(int[] nums) {
-      Set<Integer> set = new HashSet<>();
-      for(int n : nums){
-          if(set.contains(n)) return true;
-          set.add(n);
-      }
+        for (int i = 0; i < nums.length - 1; i++) {
+            j = i + 1;
+            if (nums[i] == nums[j]) return true;
+        }
         return false;
+    }
+
+
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int potentialSum = target - nums[i];
+            if (map.containsKey(potentialSum)) return new int[]{map.get(potentialSum), i};
+            else map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+
+    public static boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int n : nums) {
+            if (set.contains(n)) return true;
+            set.add(n);
+        }
+        return false;
+    }
+
+
+
+    private String[] helper(String[] arr){
+        String[] ans = new String[arr.length];
+
+        for(int i = 0; i < arr.length; i++){
+            char[] chars = arr[i].toCharArray();
+            Arrays.sort(chars);
+            String sorted = new String(chars);
+
+            ans[i] = sorted;
+        }
+        return ans;
     }
 
     public static int[] searchRange(int[] A, int target) {
         int idx = bs(A, target);
-        if( idx == -1) return new int[]{-1,-1};
-        else if(A[idx] == A[idx+1]) return new int[]{idx, idx+1};
-        else return new int[]{idx-1, idx};
+        if (idx == -1) return new int[]{-1, -1};
+        else if (A[idx] == A[idx + 1]) return new int[]{idx, idx + 1};
+        else return new int[]{idx - 1, idx};
     }
 
-    private static int bs(int[] A, int target){
-        int lo = 0, hi = A.length-1;
+    private static int bs(int[] A, int target) {
+        int lo = 0, hi = A.length - 1;
 
         while (lo <= hi) {
 
-            int mid = lo + (hi - lo)/2;
-            if(A[mid] > target){
+            int mid = lo + (hi - lo) / 2;
+            if (A[mid] > target) {
                 hi = mid - 1;
-            }
-            else if (A[mid] < target){
+            } else if (A[mid] < target) {
                 lo = mid + 1;
             } else {
                 return mid;
@@ -104,8 +132,8 @@ public class Array {
 
     public int[] sumZero(int n) {
         int[] ans = new int[n];
-        int s = 0, e = n-1, init =1;
-        while(s < e){
+        int s = 0, e = n - 1, init = 1;
+        while (s < e) {
             ans[s++] = init;
             ans[e--] = -init;
             init++;
