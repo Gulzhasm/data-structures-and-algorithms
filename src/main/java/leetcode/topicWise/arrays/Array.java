@@ -1,6 +1,7 @@
 package leetcode.topicWise.arrays;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Array {
 
@@ -52,11 +53,6 @@ public class Array {
 
     }
 
-    public static void main(String[] args) {
-        int[] nums = {5, 7, 8, 10};
-
-        System.out.println(containsDuplicate(nums));
-    }
 
     public static boolean containsDuplicateSort(int[] nums) {
         Arrays.sort(nums);
@@ -91,12 +87,46 @@ public class Array {
         return false;
     }
 
+    public static void main(String[] args) {
+        topKFrequent(new int[]{1,1,1,2,2,3}, 2);
+    }
 
+    //Input: nums = [1,1,1,2,2,3], k = 2 => 1=3, 2 =2,
+    //Output: [1,2]
+    public static int[] topKFrequent(int[] nums, int k) {
+        int[] ans = new int[k];
+        Map<Integer, Integer> map = new HashMap<>();
 
-    private String[] helper(String[] arr){
+        for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
+
+        List<Integer> sorted = new ArrayList<>(map.keySet());
+        sorted.sort((a, b) -> map.get(b) - map.get(a));
+        System.out.println(sorted);
+
+        for(int i = 0; i < k; i++){
+            ans[i] = sorted.get(i);
+        }
+        return ans;
+    }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String sorted = new String(chars);
+            if (!map.containsKey(sorted)) map.put(sorted, new ArrayList<>());
+            map.get(sorted).add(str);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
+    private String[] helper(String[] arr) {
         String[] ans = new String[arr.length];
 
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             char[] chars = arr[i].toCharArray();
             Arrays.sort(chars);
             String sorted = new String(chars);
