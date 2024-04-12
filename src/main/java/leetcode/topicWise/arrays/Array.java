@@ -88,32 +88,33 @@ public class Array {
     }
 
     public static void main(String[] args) {
-        topKFrequent(new int[]{1,1,1,2,2,3}, 2);
+        topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2);
     }
+
     public String removeKdigits(String num, int k) {
-        if(k >= num.length()) return "0";
+        if (k >= num.length()) return "0";
 
         Deque<Character> stack = new ArrayDeque<>();
-        for(char c : num.toCharArray()) {
-            while(k > 0 && !stack.isEmpty() && stack.peekLast() > c) {
+        for (char c : num.toCharArray()) {
+            while (k > 0 && !stack.isEmpty() && stack.peekLast() > c) {
                 stack.removeLast();
                 k--;
             }
             stack.addLast(c);
         }
 
-        while(k>0) {
+        while (k > 0) {
             stack.removeLast();
             k--;
         }
 
         // Remove all zeros from the front of the stack and then if stack is empty, return "0"
-        while(!stack.isEmpty() && stack.peekFirst()== '0') stack.removeFirst();
-        if(stack.isEmpty()) return "0";
+        while (!stack.isEmpty() && stack.peekFirst() == '0') stack.removeFirst();
+        if (stack.isEmpty()) return "0";
 
         // build the number from the stack
         StringBuilder sb = new StringBuilder();
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             sb.append(stack.removeFirst());
         }
         return sb.toString();
@@ -131,7 +132,7 @@ public class Array {
         sorted.sort((a, b) -> map.get(b) - map.get(a));
         System.out.println(sorted);
 
-        for(int i = 0; i < k; i++){
+        for (int i = 0; i < k; i++) {
             ans[i] = sorted.get(i);
         }
         return ans;
@@ -147,7 +148,6 @@ public class Array {
             if (!map.containsKey(sorted)) map.put(sorted, new ArrayList<>());
             map.get(sorted).add(str);
         }
-
         return new ArrayList<>(map.values());
     }
 
@@ -197,6 +197,19 @@ public class Array {
             init++;
         }
         return ans;
+    }
+
+    public boolean isPalindrome(String s) {
+        char[] ch = s.trim().toLowerCase().replaceAll("\\p{IsPunctuation}|\\s+", "").replaceAll("`", "").toCharArray();
+        int i = 0, j = ch.length-1;
+
+        while(i <= j){
+            if(ch[i] != ch[j]) return false;
+            i++;
+            j--;
+        }
+
+        return true;
     }
 
 
