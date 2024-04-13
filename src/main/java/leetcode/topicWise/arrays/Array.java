@@ -1,9 +1,22 @@
 package leetcode.topicWise.arrays;
 
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class Array {
+
+    //Input: numbers = [2,3,4], target = 6
+    //Output: [1,3]
+    public int[] twoSum1(int[] N, int target) {
+        int s = 0, e = N.length-1;
+
+        while(s <= e){
+           if(N[s] + N[e] > target) e--;
+           else if(N[s] + N[e] < target) s++;
+           else if(N[s] + N[e] == target) return new int[]{s+1,e+1};
+        }
+      return new int[]{-1,-1};
+    }
 
     public int lengthOfLastWord(String s) {
         int ans = 0;
