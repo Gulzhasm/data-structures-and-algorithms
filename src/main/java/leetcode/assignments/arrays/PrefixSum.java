@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class PrefixSum {
     public static void main(String[] args) {
-        String s = "   -42";
+        String s = "-42";
         int[] a = {1,2,0,3,4}; //[24,12,8,6]
         System.out.println(myAtoi(s));
     }
+
     public static int myAtoi(String str) {
         if (str == null || str.length() == 0)
             return 0;
@@ -55,7 +56,6 @@ public class PrefixSum {
            }
         return Integer.parseInt(builder.toString());
     }
-
 
     public static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
