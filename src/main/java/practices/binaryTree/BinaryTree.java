@@ -1,5 +1,7 @@
 package practices.binaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -45,6 +47,22 @@ public class BinaryTree {
             node.right = new Node(value);
             populate(scanner, node.right);
         }
+    }
+    public int sumOfLeftLeaves(Solution.TreeNode root) {
+        int sum = 0;
+        Queue<Solution.TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            Solution.TreeNode curr = queue.remove();
+            if (curr.right != null) queue.add(curr.right);
+
+            if (curr.left != null) {
+                if (curr.left.left == null && curr.left.right == null) sum += curr.left.val;
+                else queue.add(curr.left);
+            }
+        }
+        return sum;
     }
 
     public void display(){

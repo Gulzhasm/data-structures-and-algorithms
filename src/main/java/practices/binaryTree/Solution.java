@@ -25,21 +25,6 @@ public class Solution {
     }
 
 
-    public int sumOfLeftLeaves(TreeNode root) {
-        int sum = 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
 
-        while (!queue.isEmpty()) {
-            TreeNode curr = queue.remove();
-            if (curr.right != null) queue.add(curr.right);
-
-            if (curr.left != null) {
-                if (curr.left.left == null && curr.left.right == null) sum += curr.left.val;
-                else queue.add(curr.left);
-            }
-        }
-        return sum;
-    }
 }
 
