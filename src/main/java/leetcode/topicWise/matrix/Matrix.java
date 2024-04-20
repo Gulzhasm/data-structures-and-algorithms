@@ -52,4 +52,17 @@ public class Matrix {
         dfs(grid, i, j + 1); // right
         dfs(grid, i, j - 1); // left
     }
+
+    public static boolean canJump(int[] nums) {
+        int reachable = 0;
+        for(int i = 0; i < nums.length; i ++) {
+            if(i > reachable) return false;
+            reachable = Math.max(reachable, i + nums[i]);
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        canJump(new int[]{3,2,1,0,4});
+    }
 }
