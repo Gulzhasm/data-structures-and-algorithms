@@ -218,15 +218,5 @@ class Solution {
     }
 
 
-    public ListNode deleteMiddleFS(ListNode head) {
-        ListNode fast = head.next.next, slow = head;
-        if (head == null || head.next == null) return null;
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
 
-        slow.next = slow.next.next;
-        return head;
-    }
 }
