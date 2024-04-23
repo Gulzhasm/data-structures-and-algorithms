@@ -6,7 +6,22 @@ public class AvgTemp {
     public static void main(String[] args) {
         aboveAvgTemp();
     }
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int min = 0;
 
+        for(int i = 0; i < prices.length; i++){
+            min = Math.min(min, prices[i]);
+        }
+        int idx = i;
+
+        for(int j = idx; j < prices.length; j++){
+            if(j+1 > prices.length) break;
+            maxProfit = Math.max(maxProfit, prices[j] - prices[j+1]);
+        }
+
+        return maxProfit;
+    }
     static void avgTemp() {
         Scanner in = new Scanner(System.in);
         System.out.println("How many day's temperature: ");
