@@ -7,21 +7,14 @@ public class AvgTemp {
         aboveAvgTemp();
     }
     public int maxProfit(int[] prices) {
-        int maxProfit = 0;
-        int min = 0;
-        int idx = 0;
-        for(int i = 0; i < prices.length; i++){
-            min = Math.min(min, prices[i]);
-            idx = i;
+        int minPrice = Integer.MAX_VALUE;
+        int max = 0;
+
+        for (int price : prices) {
+            if (price < minPrice) minPrice = price;
+            if (price - minPrice > max) max = price - minPrice;
         }
-
-
-        for(int j = idx; j < prices.length; j++){
-            if(j+1 > prices.length) break;
-            maxProfit = Math.max(maxProfit, prices[j] - prices[j+1]);
-        }
-
-        return maxProfit;
+        return max;
     }
 
     static void avgTemp() {
