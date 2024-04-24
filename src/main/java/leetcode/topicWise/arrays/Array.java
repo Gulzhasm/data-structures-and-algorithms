@@ -47,6 +47,13 @@ public class Array {
         return res;
     }
 
+    public int tribonacci(int n) {
+        int dp[] = {0, 1, 1};
+        for (int i = 3; i <= n; ++i)
+            dp[i % 3] = dp[0] + dp[1] + dp[2];
+        return dp[n % 3];
+    }
+
     public static long countSubarrays1(int[] A, int k) {
         long cnt = 0;
         int r = 0, max = 0, curr = 0;
