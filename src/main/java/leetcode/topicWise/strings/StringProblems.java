@@ -1,4 +1,4 @@
-package leetcode.topicWise;
+package leetcode.topicWise.strings;
 
 import java.util.Arrays;
 import java.util.HashMap;
