@@ -12,6 +12,7 @@ public class Review {
                 int prev = ithLetter(s.charAt(i - 1));
                 int curr = ithLetter(s.charAt(i));
                 if (prev > curr) {
+                    return false;
                 }
             }
             return true;
