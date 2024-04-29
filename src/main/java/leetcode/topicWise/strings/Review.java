@@ -7,6 +7,12 @@ public class Review {
         System.out.println(isinOrder("bca"));
     }
 
+    public int minOperations(int[] A, int k) {
+        for (int a : A)
+            k ^= a;
+        return Integer.bitCount(k);
+    }
+
    static boolean isinOrder(String s) {
             for (int i = 1; i < s.length(); i++) {
                 int prev = ithLetter(s.charAt(i - 1));
