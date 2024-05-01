@@ -36,6 +36,26 @@ public class Review {
         return result;
     }
 
+    public String reversePrefix(String word, char ch) {
+        StringBuilder sb = new StringBuilder();
+        int idx = 0;
+
+        for(int i = 0; i < word.length(); i++){
+            if(word.charAt(i) == ch) {
+                idx = i;
+                break;
+            }
+        }
+
+        if(idx == 0) return word;
+
+        for(int i = idx; i >= 0; i--) sb.append(word.charAt(i));
+
+        sb.append(word.substring(idx+1));
+
+        return sb.toString();
+    }
+
     public int minOperations(int[] A, int k) {
         for (int a : A)
             k ^= a;
