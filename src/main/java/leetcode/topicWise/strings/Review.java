@@ -59,22 +59,23 @@ public class Review {
     }
 
     public int findMaxK(int[] nums) {
-        //sort
-        // -7, -1, 1, 6, 7, 10
         Arrays.sort(nums);
 
-        int s = 0, e = nums.length - 1, max = 0;
+        int s = 0, e = nums.length - 1, max = Integer.MIN_VALUE;
 
         while(s < e){
-            if(Math.abs(nums[s]) == nums[e]) return max;
-            else {
+            int sum = nums[s] + nums[e];
+
+            if(sum == 0){
+                max = Math.max(max, nums[e]);
                 s++;
                 e--;
-            }
+            } else if(sum < 0) s++;
+            else e--;
         }
-        return -1;
-    }
 
+        return max != Integer.MIN_VALUE ? max : -1;
+    }
     public int minOperations(int[] A, int k) {
         for (int a : A)
             k ^= a;
