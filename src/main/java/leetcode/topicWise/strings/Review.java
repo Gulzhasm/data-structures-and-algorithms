@@ -1,5 +1,7 @@
 package leetcode.topicWise.strings;
 
+import java.util.Arrays;
+
 public class Review {
     public static void main(String[] args) {
         int num = 0;
@@ -54,6 +56,23 @@ public class Review {
         sb.append(word.substring(idx+1));
 
         return sb.toString();
+    }
+
+    public int findMaxK(int[] nums) {
+        //sort
+        // -7, -1, 1, 6, 7, 10
+        Arrays.sort(nums);
+
+        int s = 0, e = nums.length - 1, max = 0;
+
+        while(s < e){
+            if(Math.abs(nums[s]) == nums[e]) return max;
+            else {
+                s++;
+                e--;
+            }
+        }
+        return -1;
     }
 
     public int minOperations(int[] A, int k) {
