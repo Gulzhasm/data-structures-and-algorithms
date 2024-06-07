@@ -16,7 +16,6 @@ public class Solutions {
         }
 
         return tLength - tIndex;
-
     }
 
     public int longestPalindrome(String s) {
